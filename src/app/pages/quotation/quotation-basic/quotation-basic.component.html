@@ -1,0 +1,461 @@
+<div *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="row">
+
+  <modal #quotationCalculationModal>
+    <modal-content>
+      <iframe [src]="QuotationCalculationDocURL" style="zoom:0.60" frameborder="0" height="800" width="99.6%"></iframe>
+    </modal-content>
+  </modal>
+</div>
+<div class="row">
+
+  <modal #quotationModal>
+    <modal-content>
+      <iframe [src]="QuotationDocURL" style="zoom:0.60" frameborder="0" height="800" width="99.6%"></iframe>
+    </modal-content>
+  </modal>
+</div>
+
+
+<div class="row" hidden>
+  <button class="btn btn-primary" (click)="ModalMRRequest.open()" id="btnOpenMRRequest">open</button>
+
+</div>
+
+
+<div class="row">
+
+  <modal #ModalMRRequest>
+    <modal-header>
+      <h4>MR Approval Request</h4>
+    </modal-header>
+    <modal-content>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Requested MR Amount</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{MultipleRebate}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Client Name</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{ClientName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Relevant Approval Level</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{AgentCode}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle/Chassi Number</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleChasisNo}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Sum Insured</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{SumInsured}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle Risk Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{RiskTypeName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleTypeName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Usage</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleUsageName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Agent/Broker Code</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{AgentBrokerCode}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Fuel Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{FuelTypeName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6" hidden>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">List of Covers</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{Usage}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">MR Request Reason</label>
+            <div class="col-lg-5">
+
+              <textarea class="form-control input-xs" id="" cols="30" rows="5" [(ngModel)]="MRRequestReason" name="MRRequestReason" id="MRRequestReason"></textarea>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </modal-content>
+    <modal-footer>
+      <div class="col-lg-5">
+        <button class="btn btn-primary btn-block" (click)="sendMRApprovalRequest()" type="button">Send Request</button>
+      </div>
+      <div class="col-lg-5">
+        <button id="closeModalMRRequest" class="btn btn-primary btn-block" (click)="ModalMRRequest.close()">close</button>
+      </div>
+    </modal-footer>
+  </modal>
+</div>
+<div *ngIf="!isLoading">
+  <form class="form-horizontal" role="form">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-5">
+          <table class="table table-condensed">
+            <tr hidden>
+              <td style="width:16rem"> Revison</td>
+              <td>
+                <select type="text" class="form-control input-xs" [(ngModel)]="RevisionNo" name="RevisionNo" id="RevisionNo"> </select>
+              </td>
+              <td style="width:8rem">
+                <button class="btn btn-primary btn-block">Load</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td style="width:16rem"> Requested By</td>
+                <td colspan="2">
+                  <div class="{{RequestByClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Client Name
+                </td>
+                <td colspan="2">
+                  <input type="text" class="form-control input-xs" [(ngModel)]="ClientName" name="ClientName" id="ClientName">
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Vehicle/Chassis No.
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleChassisNoClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Sum Insured
+                </td>
+                <td colspan="2">
+                  <div class="{{SumInsuredClass}}">
+                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Vehicle Risk Type
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleRiskTypeClass}}">
+                    <select type="text" class="form-control input-xs" (change)="onSelectOfRiskType($event.target.value)" [(ngModel)]="RiskTypeId"
+                      name="RiskTypeId" id="RiskTypeId" required> 
+        <option value="0">Select</option>
+<option *ngFor="let riskType of riskTypeList" value={{riskType.RiskTypeId}}>{{riskType.RiskTypeName}}</option>
+</select>
+
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Vehicle Type
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleTypeClass}}">
+                    <select type="text" class="form-control input-xs" (change)="onSelectOfVehicleType($event.target.value)" [(ngModel)]="VehicleTypeId"
+                      name="VehicleTypeId" id="VehicleTypeId" required>
+<option value="0">Select</option>
+<option *ngFor="let vehicleType of vehicleTypeList" value={{vehicleType.VehicleTypeId}}>{{vehicleType.VehicleTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Usage
+                </td>
+                <td>
+                  <div class="{{UsageClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="VehicleUsageId" name="VehicleUsageId" id="VehicleUsageId"
+                      (change)="onSelectChangeOfUsage($event.target.value)" required> 
+<option value="0">Select</option>
+<option *ngFor="let vehicleUsage of vehicleUsageList" value={{vehicleUsage.VehicleUsageId}}>{{vehicleUsage.VehicleUsageName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr style=" background-color: #ffc626; color: white; ">
+                <td>
+                  <strong>Quotation Number</strong>
+                </td>
+                <td>
+                  <!--<input type="text" class="form-control input-xs" [(ngModel)]="QuotationNo" name="QuotationNo" id="QuotationNo" readonly>-->
+                  <span style="font-size: 120%;font-weight: 900;"> {{QuotationNo}}</span>
+                </td>
+              </tr>
+              <tr style=" background-color: #f3218c; color: white; ">
+                <td>
+                  <strong>Premium</strong>
+                </td>
+                <td>
+                  <!--<input type="text" class="form-control input-xs" [(ngModel)]="Premium" name="Premium" id="Premium" readonly>-->
+                  <span style="font-size: 120%;font-weight: 900;">  {{Premium | currency:'LKR':true:'1.2-2' }}</span>
+
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td style="width:16rem"> Year of Manufacture</td>
+                <td style="width:9rem">
+                  <div class="{{YearofManufactureClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="YearOfManu" name="YearOfManu" id="YearOfManu" (blur)="CheckYOM()">
+                  </div>
+                </td>
+                <td>
+                  <div class="{{YearofManufactureValidationClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
+<option value="0">Select</option>
+<option *ngFor="let yearOfManufacture of yearOfManufactureList" value={{yearOfManufacture.MiscTypeId}}> {{yearOfManufacture.MiscTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Period of cover
+                </td>
+                <td>
+                  <div class="{{PeriodofCoverClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="PeriodTypeCode" name="PeriodTypeCode" id="PeriodTypeCode"
+                      (change)="onSelectOfPeriodTypeCode($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let periodType of periodTypeList" value={{periodType.PeriodTypeId}}> {{periodType.PeriodTypeName}}</option>
+</select>
+                  </div>
+                </td>
+                <td>
+                  <div class="{{PeriodofCoverClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="PeriodOfCoverCode" name="PeriodOfCoverCode" id="PeriodOfCoverCode">
+<option value="0">Select</option>
+<option *ngFor="let period of periodList" value={{period.PeriodId}}> {{period.PeriodName}}</option></select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Agent/Broker
+                </td>
+                <td colspan="2">
+                  <div class="{{AgentBrokerTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="AgentBroker" name="AgentBroker" id="AgentBroker" (change)="onSelectOfAgentBrokerType($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let agentType of agentTypeList"> {{agentType.AgentTypeName}}</option>
+    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Agent/Broker Code
+                </td>
+                <td colspan="2">
+
+                  <div class="{{AgentBrokerCodeClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="AgentBrokerCode" name="AgentBrokerCode" id="AgentBrokerCode">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Leasing Type
+                </td>
+                <td colspan="2">
+                  <div class="{{LeasingTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="LeasingType" name="LeasingType" id="LeasingType">
+<option value="0">Select</option>
+<option *ngFor="let leasingType of leasingTypeList" value={{leasingType.LeasingTypeId}}> {{leasingType.LeasingTypeName}}</option>
+    </select>
+
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel Type
+                </td>
+                <td colspan="2">
+                  <div class="{{FuelTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="FuelTypeCode" name="FuelTypeCode" id="FuelTypeCode" (change)="onSelectOfFuelTypeCode($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let fuelType of fuelTypeList" value={{fuelType.FuelTypeId}}>{{fuelType.FuelTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Product
+                </td>
+                <td colspan="2">
+                  <div class="{{ProductClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="ProductCode" name="ProductCode" id="ProductCode" (change)="onChangeProduct($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let product of productList" value={{product.ProductId}}> {{product.ProductName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Make & Model
+                </td>
+                <td colspan="2">
+                  <div class="{{MakeAndModelClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="makeModelId" name="makeModelId" id="makeModelId">
+<option value="0">Select</option>
+<option *ngFor="let makeModel of makeModelList" value={{makeModel.MakeModelId}}> {{makeModel.MakeModelName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="">Remarks</label>
+            <textarea name="" class="form-control input-xs" id="" cols="30" rows="5" [(ngModel)]="Remark" name="Remark" id="Remark"></textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-block" type="button" (click)="resetForm()">New</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-block" (click)="calculate()" type="button">Calculate</button>
+        </div>
+
+        <div class="col-md-2" hidden>
+          <button class="btn btn-primary btn-block" (click)="viewCalculation()" type="button">View Calculation</button>
+        </div>
+
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-block" (click)="viewQuotation()" type="button">View Quotation</button>
+        </div>
+      </div>
+
+      <div class="row" hidden>
+        <div class="col-md-3">
+          <button type="button" id="openModalButton" class="btn btn-default" (click)="ModalMRRequest.open()">Open me!</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="quotationCalculationModal.open()" id="openQuotationCalculationModalButton">View Calculation</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="quotationModal.open()" id="openQuotationModalButton">View Quotation</button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </form>
+</div>

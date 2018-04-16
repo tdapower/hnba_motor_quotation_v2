@@ -1,0 +1,953 @@
+<div *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="row">
+
+  <modal #quotationCalculationModal>
+    <modal-content>
+      <iframe [src]="QuotationCalculationDocURL" style="zoom:0.60" frameborder="0" height="800" width="99.6%"></iframe>
+    </modal-content>
+  </modal>
+</div>
+<div class="row">
+
+  <modal #quotationModal>
+    <modal-content>
+      <iframe [src]="QuotationDocURL" style="zoom:0.60" frameborder="0" height="800" width="99.6%"></iframe>
+    </modal-content>
+  </modal>
+</div>
+
+
+<div class="row" hidden>
+  <button class="btn btn-primary" (click)="ModalMRRequest.open()" id="btnOpenMRRequest">open</button>
+
+</div>
+
+
+<div class="row">
+
+  <modal #ModalMRRequest>
+    <modal-header>
+      <h4>MR Approval Request</h4>
+    </modal-header>
+    <modal-content>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Requested MR Amount</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{MultipleRebate}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Client Name</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{ClientName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Relevant Approval Level</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{AgentCode}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle/Chassi Number</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleChasisNo}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Sum Insured</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{SumInsured}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle Risk Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{RiskTypeName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Vehicle Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleTypeName}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Usage</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{VehicleUsageName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Agent/Broker Code</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{AgentBrokerCode}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">Fuel Type</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{FuelTypeName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6" hidden>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">List of Covers</label>
+            <div class="col-lg-5">
+              <span class="form-control">{{Usage}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-7 control-label">MR Request Reason</label>
+            <div class="col-lg-5">
+
+              <textarea class="form-control input-xs" id="" cols="30" rows="5" [(ngModel)]="MRRequestReason" name="MRRequestReason" id="MRRequestReason"></textarea>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </modal-content>
+    <modal-footer>
+      <div class="col-lg-5">
+        <button class="btn btn-primary btn-block" (click)="sendMRApprovalRequest()" type="button">Send Request</button>
+      </div>
+      <div class="col-lg-5">
+        <button id="closeModalMRRequest" class="btn btn-primary btn-block" (click)="ModalMRRequest.close()">close</button>
+      </div>
+    </modal-footer>
+  </modal>
+</div>
+<div *ngIf="!isLoading">
+  <form class="form-horizontal" role="form">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-5">
+          <table class="table table-condensed">
+            <tr hidden>
+              <td style="width:16rem"> Revison</td>
+              <td>
+                <select type="text" class="form-control input-xs" [(ngModel)]="RevisionNo" name="RevisionNo" id="RevisionNo"> </select>
+              </td>
+              <td style="width:8rem">
+                <button class="btn btn-primary btn-block">Load</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td style="width:16rem"> Requested By</td>
+                <td colspan="2">
+                  <div class="{{RequestByClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Client Name
+                </td>
+                <td colspan="2">
+                  <input type="text" class="form-control input-xs" [(ngModel)]="ClientName" name="ClientName" id="ClientName">
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Vehicle/Chassis No.
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleChassisNoClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Sum Insured
+                </td>
+                <td colspan="2">
+                  <div class="{{SumInsuredClass}}">
+                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Vehicle Risk Type
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleRiskTypeClass}}">
+                    <select type="text" class="form-control input-xs" (change)="onSelectOfRiskType($event.target.value)" [(ngModel)]="RiskTypeId"
+                      name="RiskTypeId" id="RiskTypeId" required> 
+        <option value="0">Select</option>
+<option *ngFor="let riskType of riskTypeList" value={{riskType.RiskTypeId}}>{{riskType.RiskTypeName}}</option>
+</select>
+
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Vehicle Type
+                </td>
+                <td colspan="2">
+                  <div class="{{VehicleTypeClass}}">
+                    <select type="text" class="form-control input-xs" (change)="onSelectOfVehicleType($event.target.value)" [(ngModel)]="VehicleTypeId"
+                      name="VehicleTypeId" id="VehicleTypeId" required>
+<option value="0">Select</option>
+<option *ngFor="let vehicleType of vehicleTypeList" value={{vehicleType.VehicleTypeId}}>{{vehicleType.VehicleTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Usage
+                </td>
+                <td>
+                  <div class="{{UsageClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="VehicleUsageId" name="VehicleUsageId" id="VehicleUsageId"
+                      (change)="onSelectChangeOfUsage($event.target.value)" required> 
+<option value="0">Select</option>
+<option *ngFor="let vehicleUsage of vehicleUsageList" value={{vehicleUsage.VehicleUsageId}}>{{vehicleUsage.VehicleUsageName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr style=" background-color: #ffc626; color: white; ">
+                <td>
+                  <strong>Quotation Number</strong>
+                </td>
+                <td>
+                  <!--<input type="text" class="form-control input-xs" [(ngModel)]="QuotationNo" name="QuotationNo" id="QuotationNo" readonly>-->
+                  <span style="font-size: 120%;font-weight: 900;"> {{QuotationNo}}</span>
+                </td>
+              </tr>
+              <tr style=" background-color: #f3218c; color: white; ">
+                <td>
+                  <strong>Premium</strong>
+                </td>
+                <td>
+                  <!--<input type="text" class="form-control input-xs" [(ngModel)]="Premium" name="Premium" id="Premium" readonly>-->
+                  <span style="font-size: 120%;font-weight: 900;">  {{Premium | currency:'LKR':true:'1.2-2' }}</span>
+
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td style="width:16rem"> Year of Manufacture</td>
+                <td style="width:9rem" hidden>
+                  <div class="{{YearofManufactureClass}}" >
+                    <input type="text" class="form-control input-xs" [(ngModel)]="YearOfManu" name="YearOfManu" id="YearOfManu" (blur)="CheckYOM()">
+                  </div>
+                </td>
+                <td>
+                  <div class="{{YearofManufactureValidationClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
+<option value="0">Select</option>
+<option *ngFor="let yearOfManufacture of yearOfManufactureList" value={{yearOfManufacture.MiscTypeId}}> {{yearOfManufacture.MiscTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Period of cover
+                </td>
+                <td>
+                  <div class="{{PeriodofCoverClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="PeriodTypeCode" name="PeriodTypeCode" id="PeriodTypeCode"
+                      (change)="onSelectOfPeriodTypeCode($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let periodType of periodTypeList" value={{periodType.PeriodTypeId}}> {{periodType.PeriodTypeName}}</option>
+</select>
+                  </div>
+                </td>
+                <td>
+                  <div class="{{PeriodofCoverClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="PeriodOfCoverCode" name="PeriodOfCoverCode" id="PeriodOfCoverCode">
+<option value="0">Select</option>
+<option *ngFor="let period of periodList" value={{period.PeriodId}}> {{period.PeriodName}}</option></select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Agent/Broker
+                </td>
+                <td colspan="2">
+                  <div class="{{AgentBrokerTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="AgentBroker" name="AgentBroker" id="AgentBroker" (change)="onSelectOfAgentBrokerType($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let agentType of agentTypeList"> {{agentType.AgentTypeName}}</option>
+    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Agent/Broker Code
+                </td>
+                <td colspan="2">
+
+                  <div class="{{AgentBrokerCodeClass}}">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="AgentBrokerCode" name="AgentBrokerCode" id="AgentBrokerCode">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Leasing Type
+                </td>
+                <td colspan="2">
+                  <div class="{{LeasingTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="LeasingType" name="LeasingType" id="LeasingType"
+                    (change)="onSelectOfLeasingType($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let leasingType of leasingTypeList" value={{leasingType.LeasingTypeId}}> {{leasingType.LeasingTypeName}}</option>
+    </select>
+
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Fuel Type
+                </td>
+                <td colspan="2">
+                  <div class="{{FuelTypeClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="FuelTypeCode" name="FuelTypeCode" id="FuelTypeCode" (change)="onSelectOfFuelTypeCode($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let fuelType of fuelTypeList" value={{fuelType.FuelTypeId}}>{{fuelType.FuelTypeName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Product
+                </td>
+                <td colspan="2">
+                  <div class="{{ProductClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="ProductCode" name="ProductCode" id="ProductCode" (change)="onChangeProduct($event.target.value)">
+<option value="0">Select</option>
+<option *ngFor="let product of productList" value={{product.ProductId}}> {{product.ProductName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Make & Model
+                </td>
+                <td colspan="2">
+                  <div class="{{MakeAndModelClass}}">
+                    <select type="text" class="form-control input-xs" [(ngModel)]="makeModelId" name="makeModelId" id="makeModelId">
+<option value="0">Select</option>
+<option *ngFor="let makeModel of makeModelList" value={{makeModel.MakeModelId}}> {{makeModel.MakeModelName}}</option>
+</select>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="">Remarks</label>
+            <textarea name="" class="form-control input-xs" id="" cols="30" rows="5" [(ngModel)]="Remark" name="Remark" id="Remark"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="ProductCode!=3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">POLICY COVERS</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <table class="table table-condensed">
+                  <tr *ngIf="isUserCompanyHNBGI">
+                    <td colspan="2">
+                      Multiple Rebate
+                    </td>
+                    <td colspan="2">
+                      <div class="{{MultipleRebateClass}}">
+                        <input type="text" class="form-control input-xs" max="100" [(ngModel)]="MultipleRebate" name="MultipleRebate" id="MultipleRebate">
+                      </div>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk1Checked" name="isChk1Checked" id="isChk1Checked">
+                    </td>
+                    <td style="width:20rem"> Hire Purchase/Lease/Loan</td>
+                    <td colspan="2">
+                      <div class="{{HirePurchaseClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="HirePurchaseAmount" name="HirePurchaseAmount" id="HirePurchaseAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk2Checked" name="isChk2Checked" id="isChk2Checked">
+                    </td>
+                    <td style="width:19rem"> Less - Voluntary</td>
+                    <td colspan="2">
+                      <div class="{{VoluntaryClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="VoluntaryId" name="VoluntaryId" id="VoluntaryId">
+<option value="0">Select</option>
+<option *ngFor="let voluntary of voluntaryList" value={{voluntary.MiscTypeId}}>{{voluntary.MiscTypeName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr hidden>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk3Checked" name="isChk3Checked" id="isChk3Checked">
+                    </td>
+                    <td style="width:19rem"> AAC Membership</td>
+                    <td colspan="2">
+                      <div class="{{AACMembershipClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="AACMembershipAmount" name="AACMembershipAmount" id="AACMembershipAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk4Checked" name="isChk4Checked" id="isChk4Checked">
+                    </td>
+                    <td style="width:19rem"> PAB To Driver</td>
+                    <td style="width:2rem">
+                      <div class="{{PABToDriverClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="PABToDriverId" name="PABToDriverId" id="PABToDriverId">
+<option value="0">Select</option>
+<option *ngFor="let PABToDriver of PABToDriverList" value={{PABToDriver.MiscTypeId}}>{{PABToDriver.MiscTypeName}}</option>
+</select>
+                      </div>
+                    </td>
+                    <td style="width:16rem">
+                      <div class="{{PABToDriverClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="PABToDriverAmount" name="PABToDriverAmount" id="PABToDriverAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk5Checked" name="isChk5Checked" id="isChk5Checked">
+                    </td>
+                    <td style="width:19rem"> PAB To Passenger</td>
+                    <td>
+                      <div class="{{PABToPassengerClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="PABToPassengerId" name="PABToPassengerId" id="PABToPassengerId">
+<option value="0">Select</option>
+<option *ngFor="let PABToPassenger of PABToPassengerList" value={{PABToPassenger.MiscTypeId}}>{{PABToPassenger.MiscTypeName}}</option>
+</select>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="{{PABToPassengerClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="PABToPassengerAmount" name="PABToPassengerAmount" id="PABToPassengerAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk6Checked" name="isChk6Checked" id="isChk6Checked">
+                    </td>
+                    <td style="width:10rem"> Goods In Transit</td>
+                    <td style="width:12rem">
+
+                    </td>
+                    <td>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="width:2rem">
+                    </td>
+                    <td colspan="2" style="width:6rem">
+                      <div class="{{GoodsInTransitClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="goodsInTransitId" name="goodsInTransitId" id="goodsInTransitId">
+<option value="0">Select</option>
+<option *ngFor="let goodsInTransit of goodsInTransitList" value={{goodsInTransit.GoodsInTransitId}}>{{goodsInTransit.GoodsInTransitName}}</option>
+</select>
+                      </div>
+                    </td>
+                    <td style="width:6rem">
+                      <div class="{{GoodsInTransitClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="GoodsInTransitAmount" name="GoodsInTransitAmount" id="GoodsInTransitAmount">
+                      </div>
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk7Checked" name="isChk7Checked" id="isChk7Checked"   [disabled]="isChk7Disabled">
+                    </td>
+                    <td style="width:19rem"> Legal Liability</td>
+                    <td>
+                      <div class="{{LegalLiabilityClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="legalLiabilityCountId" name="legalLiabilityCountId" id="legalLiabilityCountId"   [disabled]="isChk7Disabled">
+<option value="0">Select</option>
+<option *ngFor="let leagalLiabilityCount of legalLiabilityCountList" value={{leagalLiabilityCount.MiscTypeId}}>{{leagalLiabilityCount.MiscTypeName}}</option>
+</select>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="{{LegalLiabilityClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="legalLiabilityValueId" name="legalLiabilityValueId" id="legalLiabilityValueId"   [disabled]="isChk7Disabled">
+<option value="0">Select</option>
+<option *ngFor="let leagalLiabilityValue of legalLiabilityValueList" value={{leagalLiabilityValue.LegalLiabilityName}}>{{leagalLiabilityValue.LegalLiabilityName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk8Checked" name="isChk8Checked" id="isChk8Checked">
+                    </td>
+                    <td style="width:19rem"> Towing Charges</td>
+                    <td colspan="2">
+                      <div class="{{TowingChargesClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="TowingChargeAmount" name="TowingChargeAmount" id="TowingChargeAmount">
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk36Checked" name="isChk36Checked" id="isChk36Checked" [disabled]="isChk36Disabled">
+                    </td>
+                    <td style="width:19rem" colspan="3"> Less - Name Driver Discount</td>
+
+                  </tr>
+
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk37Checked" name="isChk37Checked" id="isChk37Checked" [disabled]="isChk37Disabled">
+                    </td>
+                    <td style="width:19rem"> NCB Protection</td>
+                    <td colspan="2">
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-md-4">
+                <table class="table table-condensed">
+                  <tr>
+                    <td colspan="3">
+                      <div class="col-md-8">
+                        <button class="btn btn-info btn-block" (click)="selectLeasingCovers()" type="button">Leasing Covers</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk9Checked" name="isChk9Checked" id="isChk9Checked" (change)="onChk9CheckedChanged()">
+                    </td>
+                    <td style="width:19rem"> Earned NCB (20% - 75%)</td>
+                    <td>
+                      <div class="{{EarnedNCBClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="selectedEarnedNCBId" name="selectedEarnedNCBId" id="selectedEarnedNCBId"
+                         >
+<option value="0">Select</option>
+<option *ngFor="let earnedNCB of earnedNCBList"   value={{earnedNCB.EarnedNCBValue}} >{{earnedNCB.EarnedNCBName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk10Checked" name="isChk10Checked" id="isChk10Checked" (change)="onChk10CheckedChanged()" 
+                      [disabled]="isChk10Disabled">
+                    </td>
+                    <td style="width:19rem"> Up - Front NCB %</td>
+                    <td>
+                      <div class="{{UpFrontNCBClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="selectedUpFrontNCBId" name="selectedUpFrontNCBId" id="selectedUpFrontNCBId"
+                        (ngModelChange)="onSelectOfUpFrontNCB($event)"   [disabled]="isChk10Disabled">
+<option value="0">Select</option>
+<option *ngFor="let upFrontNCB of upFrontNCBList"  value={{upFrontNCB.UpFrontNCBValue}} >{{upFrontNCB.UpFrontNCBName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk11Checked" name="isChk11Checked" id="isChk11Checked">
+                    </td>
+                    <td style="width:19rem"> Windscreen</td>
+                    <td>
+                      <div class="{{WindscreenClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="WindscreenAmount" name="WindscreenAmount" id="WindscreenAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk12Checked" name="isChk12Checked" id="isChk12Checked" [disabled]="isTPPDDisabled">
+                    </td>
+                    <td style="width:19rem"> TPPD</td>
+                    <td>
+                      <div class="{{TPPDClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="TppdId" name="TppdId" id="TppdId" [disabled]="isTPPDDisabled">
+<option value="0">Select</option>
+<option *ngFor="let tppd of tppdList" value={{tppd.TPPDName}}>{{tppd.TPPDName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk13Checked" name="isChk13Checked" id="isChk13Checked">
+                    </td>
+                    <td>
+                      WCI
+                    </td>
+                    <td>
+                      <div class="{{WCIClass}}">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="WciId" name="WciId" id="WciId">
+<option value="0">Select</option>
+<option *ngFor="let wci of wciList" value={{wci.MiscTypeId}}>{{wci.MiscTypeName}}</option>
+</select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" [(ngModel)]="isChk14Checked" name="isChk14Checked" id="isChk14Checked" [disabled]="isChk14Disabled">
+                    </td>
+                    <td colspan="2">
+                      Inclusion of Excluded Items
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk15Checked" name="isChk15Checked" id="isChk15Checked">
+                    </td>
+                    <td colspan="2">
+                      Learner Rider/Driver
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk16Checked" name="isChk16Checked" id="isChk16Checked" [disabled]="isChk16Disabled">
+                    </td>
+                    <td colspan="2">
+                      CTB
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk17Checked" name="isChk17Checked" id="isChk17Checked" [disabled]="isChk17Disabled">
+                    </td>
+                    <td colspan="2">
+                      Rent A Car
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk18Checked" name="isChk18Checked" id="isChk18Checked" (change)="onChk18CheckedChanged()">
+                    </td>
+                    <td colspan="2">
+                      Flood
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk19Checked" name="isChk19Checked" id="isChk19Checked" (change)="onChk19CheckedChanged()">
+                    </td>
+                    <td colspan="1">
+                      Natural Perils
+                    </td>
+                    <td style="width:8rem">
+                      <input type="checkbox" [(ngModel)]="isChk20Checked" name="isChk20Checked" id="isChk20Checked" [disabled]="isChk20Disabled">Stamp
+                      Duty
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk35Checked" name="isChk35Checked" id="isChk35Checked">
+                    </td>
+                    <td colspan="1">
+                      Air Bag Replacement
+                    </td>
+                    <td>
+                      <div class="{{AirBagReplacementClass}}">
+                        <input type="text" class="form-control input-xs" [(ngModel)]="AirBAgReplacementAmount" name="AirBAgReplacementAmount" id="AirBAgReplacementAmount">
+                      </div>
+                    </td>
+                  </tr>
+                  <!--<tr>
+  <td style="width:2rem">
+<input type="checkbox" [(ngModel)]="isChk21Checked" name="isChk21Checked" id="isChk21Checked">
+</td>
+<td colspan="1">
+  Less - Points Earned
+</td>
+<td>
+  <input type="text" class="form-control input-xs" [(ngModel)]="PointsEarnedAmount" name="PointsEarnedAmount" id="PointsEarnedAmount">
+</td>
+</tr>-->
+
+                </table>
+              </div>
+              <div class="col-md-4">
+                <table class="table table-condensed">
+                  <tr>
+                    <td colspan="2"></td>
+                    <td>
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr hidden>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk22Checked" name="isChk22Checked" id="isChk22Checked">
+                    </td>
+                    <td>
+                      Driving Tuition
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk23Checked" name="isChk23Checked" id="isChk23Checked">
+                    </td>
+                    <td colspan="2">
+                      Duty Free/Duty Concession
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:2rem">
+                      <input type="checkbox" [(ngModel)]="isChk24Checked" name="isChk24Checked" id="isChk24Checked">
+                    </td>
+                    <td colspan="2">
+                      Adjustment Fee
+                    </td>
+                  </tr>
+                  <tr>
+                    <tr>
+
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk25Checked" name="isChk25Checked" id="isChk25Checked" [disabled]="isChk25Disabled">
+                      </td>
+                      <td>
+                        Theft of Parts
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk26Checked" name="isChk26Checked" id="isChk26Checked">
+                      </td>
+                      <td>
+                        SRCC - for Vehicles
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk27Checked" name="isChk27Checked" id="isChk27Checked">
+                      </td>
+                      <td>
+                        SRCC - for Goods
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr hidden>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk28Checked" name="isChk28Checked" id="isChk28Checked">
+                      </td>
+                      <td>
+                        SRCC - for PAB
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk33Checked" name="isChk33Checked" id="isChk33Checked">
+                      </td>
+                      <td>
+                        TC - for Vehicles
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk34Checked" name="isChk34Checked" id="isChk34Checked">
+                      </td>
+                      <td>
+                        TC - for Goods
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr hidden>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk29Checked" name="isChk29Checked" id="isChk29Checked">
+                      </td>
+                      <td>
+                        TC - for PAB
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr hidden>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk30Checked" name="isChk30Checked" id="isChk30Checked">
+                      </td>
+                      <td>
+                        SRCC - for WCI
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr hidden>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk31Checked" name="isChk31Checked" id="isChk31Checked">
+                      </td>
+                      <td>
+                        TC - for WCI
+                      </td>
+                      <td>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width:2rem">
+                        <input type="checkbox" [(ngModel)]="isChk32Checked" name="isChk32Checked" id="isChk32Checked">
+                      </td>
+                      <td colspan="1">
+                        Compulsary Excess
+                      </td>
+                      <td>
+                        <div class="{{CompulsaryExcessClass}}">
+                          <input type="text" class="form-control input-xs" [(ngModel)]="CompulsaryExcess" name="CompulsaryExcess" id="CompulsaryExcess">
+                        </div>
+                      </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-2">
+          <button class="btn btn-success btn-block" type="button" (click)="resetForm()">New</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-success btn-block" (click)="calculate()" type="button">Calculate</button>
+        </div>
+        <!--<div class="col-md-3">
+    <button class="btn btn-primary btn-block" (click)="viewCalculation()" type="button">View Calculation</button>
+  </div>
+
+  <div class="col-md-3" hidden>
+    <a class="btn btn-primary btn-block" href="{{CalculationURL}}">View Calculation</a>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-primary btn-block" (click)="viewQuotation()" type="button">View Quotation</button>
+  </div>-->
+        <div class="col-md-2">
+          <button class="btn btn-success btn-block" (click)="viewCalculation()" type="button">View Calculation</button>
+        </div>
+
+        <div class="col-md-2">
+          <button class="btn btn-success btn-block" (click)="viewQuotation()" type="button">View Quotation</button>
+        </div>
+      </div>
+
+      <div class="row" hidden>
+        <div class="col-md-3">
+          <button type="button" id="openModalButton" class="btn btn-default" (click)="ModalMRRequest.open()">Open me!</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-success" (click)="quotationCalculationModal.open()" id="openQuotationCalculationModalButton">View Calculation</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-success" (click)="quotationModal.open()" id="openQuotationModalButton">View Quotation</button>
+        </div>
+      </div>
+
+
+    </div>
+  </form>
+</div>

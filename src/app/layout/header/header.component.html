@@ -1,0 +1,66 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <img src="../assets/images/gilogo.png" height="70px">
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav"  *ngIf="isUserCompanyHNBGI">
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quotation <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/','add']">New Quotation</a></li>
+            <li><a [routerLink]="['/','search']">Search Quotation</a></li>
+
+          </ul>
+        </li>
+        
+      </ul>
+      <ul class="nav navbar-nav"  *ngIf="!isUserCompanyHNBGI">
+        <li class="dropdown" >
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quotation <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/','quote']">New Quotation</a></li>
+
+          </ul>
+        </li>
+        
+      </ul>
+      <ul class="nav navbar-nav" >
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Takaful Quotation <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/','addTakaful']">New Quotation</a></li>
+            <li><a [routerLink]="['/','searchTakaful']">Search Quotation</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+
+      <form class="navbar-form navbar-left" role="search" hidden>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" (click)="logout()">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>{{UserDisplayName}}</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>

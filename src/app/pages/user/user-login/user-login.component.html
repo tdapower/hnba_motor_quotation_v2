@@ -1,0 +1,26 @@
+<div *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</div>
+<div class="background"  *ngIf="!isLoading">
+
+
+  <div class="form">
+    <div class="thumbnail">
+      <img src="../../../../assets/images/gilogo_3.png" />
+    </div>
+    <form class="register-form">
+      <input type="text" placeholder="name" />
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address" />
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="username" [(ngModel)]="UserName" name="UserName" id="UserName" class="input" />
+      <input type="password" placeholder="password" [(ngModel)]="Password" name="Password" id="Password" />
+      <button (click)="validateUser()" type="button">login</button>
+      <p class="text-danger">{{message}}</p>
+      <p class="message">Developed by Tharindu @ HNBA IT Dept.</p>
+    </form>
+  </div>
+</div>

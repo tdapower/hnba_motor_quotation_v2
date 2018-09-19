@@ -408,7 +408,7 @@ export class QuotationService {
     let postoptions = new RequestOptions({ headers: headers });
 
     return this.http.post(URL_CONST.URL_PREFIX + 'api/QuotationMain/AddQuotationMainDetails', body, postoptions)
-      .map(res => res)
+    .map((response: Response) => JSON.stringify(response.json()))
       .timeout(60000)
       .catch((error: any) => {
         this.handleError;
@@ -429,7 +429,7 @@ export class QuotationService {
     
 
     return this.http.post(URL_CONST.URL_PREFIX + 'api/QuotationMain/UpdateQuotationMainDetails', body, postoptions)
-      .map(res => res)
+    .map((response: Response) => JSON.stringify(response.json()))
       .timeout(60000)
       .catch((error: any) => {
         this.handleError;
@@ -451,7 +451,7 @@ export class QuotationService {
     let postoptions = new RequestOptions({ headers: headers });
 
     return this.http.post(URL_CONST.URL_PREFIX + 'api/QuotationCover/AddQuotationCoverDetails', body, postoptions)
-      .map(res => res)
+    .map((response: Response) => JSON.stringify(response.json()))
       .timeout(60000)
       .catch((error: any) => {
         this.handleError;
@@ -469,7 +469,7 @@ export class QuotationService {
     let postoptions = new RequestOptions({ headers: headers });
 
     return this.http.post(URL_CONST.URL_PREFIX + 'api/QuotationMain/CalculateAndGetPremium', body, postoptions)
-      .map(res => res)
+    .map((response: Response) => JSON.stringify(response.json()))
       .timeout(60000)
       .catch((error: any) => {
         this.handleError;

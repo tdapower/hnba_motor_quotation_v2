@@ -193,7 +193,8 @@
                 <td style="width:16rem"> Requested By</td>
                 <td colspan="2">
                   <div class="{{RequestByClass}}">
-                    <input type="text" class="form-control input-xs" [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
+                    <input type="text" class="form-control input-xs"   style="text-transform:uppercase;"
+                    [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
                   </div>
                 </td>
               </tr>
@@ -202,7 +203,8 @@
                   Client Name
                 </td>
                 <td colspan="2">
-                  <input type="text" class="form-control input-xs" [(ngModel)]="ClientName" name="ClientName" id="ClientName">
+                  <input type="text" class="form-control input-xs" style="text-transform:uppercase;"
+                  [(ngModel)]="ClientName" name="ClientName" id="ClientName">
                 </td>
               </tr>
 
@@ -212,7 +214,8 @@
                 </td>
                 <td colspan="2">
                   <div class="{{VehicleChassisNoClass}}">
-                    <input type="text" class="form-control input-xs" [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
+                    <input type="text" class="form-control input-xs"  style="text-transform:uppercase;"
+                    [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
                   </div>
                 </td>
               </tr>
@@ -222,7 +225,7 @@
                 </td>
                 <td colspan="2">
                   <div class="{{SumInsuredClass}}">
-                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0">
+                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0"  [disabled]="isSumInsuredDisabled">
                   </div>
                 </td>
               </tr>
@@ -304,8 +307,8 @@
                   </div>
                 </td>
                 <td>
-                  <div class="{{YearofManufactureValidationClass}}">
-                    <select type="text" class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
+                  <div class="{{YearofManufactureValidationClass}}" hiden>
+                    <select type="text" disabled class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
 <option value="0">Select</option>
 <option *ngFor="let yearOfManufacture of yearOfManufactureList" value={{yearOfManufacture.MiscTypeId}}> {{yearOfManufacture.MiscTypeName}}</option>
 </select>
@@ -399,7 +402,7 @@
               </tr>
               <tr>
                 <td>
-                  Make & Model
+                 Risk Category
                 </td>
                 <td colspan="2">
                   <div class="{{MakeAndModelClass}}">
@@ -782,7 +785,7 @@
                   </tr>
                   <tr>
                     <td style="width:2rem">
-                      <input type="checkbox" [(ngModel)]="isChk24Checked" name="isChk24Checked" id="isChk24Checked">
+                      <input type="checkbox" [(ngModel)]="isChk24Checked" name="isChk24Checked" id="isChk24Checked"  [disabled]="isChk24Disabled">
                     </td>
                     <td colspan="2">
                       Adjustment Fee

@@ -188,7 +188,8 @@
                 <td style="width:16rem"> Requested By</td>
                 <td colspan="2">
                   <div class="{{RequestByClass}}">
-                    <input type="text" class="form-control input-xs" [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
+                    <input type="text" class="form-control input-xs"   style="text-transform:uppercase;"
+                    [(ngModel)]="RequestBy" name="RequestBy" id="RequestBy">
                   </div>
                 </td>
               </tr>
@@ -197,7 +198,8 @@
                   Client Name
                 </td>
                 <td colspan="2">
-                  <input type="text" class="form-control input-xs" [(ngModel)]="ClientName" name="ClientName" id="ClientName">
+                  <input type="text" class="form-control input-xs" style="text-transform:uppercase;"
+                  [(ngModel)]="ClientName" name="ClientName" id="ClientName">
                 </td>
               </tr>
 
@@ -207,7 +209,8 @@
                 </td>
                 <td colspan="2">
                   <div class="{{VehicleChassisNoClass}}">
-                    <input type="text" class="form-control input-xs" [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
+                    <input type="text" class="form-control input-xs"  style="text-transform:uppercase;"
+                    [(ngModel)]="VehicleChasisNo" name="VehicleChasisNo" id="VehicleChasisNo">
                   </div>
                 </td>
               </tr>
@@ -217,7 +220,7 @@
                 </td>
                 <td colspan="2">
                   <div class="{{SumInsuredClass}}">
-                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0">
+                    <input type="number" class="form-control input-xs" [(ngModel)]="SumInsured" name="SumInsured" id="SumInsured" required min="0"  [disabled]="isSumInsuredDisabled">
                   </div>
                 </td>
               </tr>
@@ -290,12 +293,13 @@
                 <td style="width:16rem"> Year of Manufacture</td>
                 <td style="width:9rem">
                   <div class="{{YearofManufactureClass}}">
-                    <input type="text" class="form-control input-xs" [(ngModel)]="YearOfManu" name="YearOfManu" id="YearOfManu" (blur)="CheckYOM()">
+                    <input type="text" class="form-control input-xs" [(ngModel)]="YearOfManu" name="YearOfManu" id="YearOfManu"
+                     (blur)="CheckYOM()">
                   </div>
                 </td>
                 <td>
-                  <div class="{{YearofManufactureValidationClass}}">
-                    <select type="text" class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
+                  <div class="{{YearofManufactureValidationClass}}" hiden>
+                    <select type="text" disabled class="form-control input-xs" [(ngModel)]="yearOfManufactureId" name="yearOfManufactureId" id="yearOfManufactureId">
 <option value="0">Select</option>
 <option *ngFor="let yearOfManufacture of yearOfManufactureList" value={{yearOfManufacture.MiscTypeId}}> {{yearOfManufacture.MiscTypeName}}</option>
 </select>
@@ -389,7 +393,7 @@
               </tr>
               <tr>
                 <td>
-                  Make & Model
+                 Risk Category
                 </td>
                 <td colspan="2">
                   <div class="{{MakeAndModelClass}}">
@@ -604,9 +608,9 @@
                     <td>
                       <div class="{{EarnedNCBClass}}">
                         <select type="text" class="form-control input-xs" [(ngModel)]="selectedEarnedNCBId" name="selectedEarnedNCBId" id="selectedEarnedNCBId"
-                         >
+                          (ngModelChange)="onSelectOfEarnedNCB($event)">
 <option value="0">Select</option>
-<option *ngFor="let earnedNCB of earnedNCBList"   value={{earnedNCB.EarnedNCBValue}} >{{earnedNCB.EarnedNCBName}}</option>
+<option *ngFor="let earnedNCB of earnedNCBList" [ngValue]="earnedNCB">{{earnedNCB.EarnedNCBName}}</option>
 </select>
                       </div>
                     </td>
@@ -618,9 +622,10 @@
                     <td style="width:19rem"> Up - Front NCB %</td>
                     <td>
                       <div class="{{UpFrontNCBClass}}">
-                        <select type="text" class="form-control input-xs" [(ngModel)]="selectedUpFrontNCBId" name="selectedUpFrontNCBId" id="selectedUpFrontNCBId">
+                        <select type="text" class="form-control input-xs" [(ngModel)]="selectedUpFrontNCBId" name="selectedUpFrontNCBId" id="selectedUpFrontNCBId" 
+                         (ngModelChange)="onSelectOfUpFrontNCB($event)">
 <option value="0">Select</option>
-<option *ngFor="let upFrontNCB of upFrontNCBList"  value={{upFrontNCB.UpFrontNCBValue}} >{{upFrontNCB.UpFrontNCBName}}</option>
+<option *ngFor="let upFrontNCB of upFrontNCBList"  [ngValue]="upFrontNCB">{{upFrontNCB.UpFrontNCBName}}</option>
 </select>
                       </div>
                     </td>
@@ -771,7 +776,7 @@
                   </tr>
                   <tr>
                     <td style="width:2rem">
-                      <input type="checkbox" [(ngModel)]="isChk24Checked" name="isChk24Checked" id="isChk24Checked">
+                      <input type="checkbox" [(ngModel)]="isChk24Checked" name="isChk24Checked" id="isChk24Checked"  [disabled]="isChk24Disabled">
                     </td>
                     <td colspan="2">
                       Adjustment Fee

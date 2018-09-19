@@ -326,7 +326,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.VehicleUsageId = "0";
       },
-      ((err) => console.log(err)));
+        ((err) => console.log(err)));
   }
 
 
@@ -336,7 +336,7 @@ export class QuotationViewComponent implements OnInit {
         this.vehicleTypeList = data
 
       },
-      ((err) => console.log(err)));
+        ((err) => console.log(err)));
   }
 
   /* getVehicleTypesByRiskTypeId(riskType) {
@@ -365,11 +365,11 @@ export class QuotationViewComponent implements OnInit {
 
         this.isLoading = false;
       },
-      ((err) => {
-        console.log(err);
+        ((err) => {
+          console.log(err);
 
-        this.isLoading = false;
-      }));
+          this.isLoading = false;
+        }));
   }
 
   getVehicleUsages() {
@@ -378,7 +378,7 @@ export class QuotationViewComponent implements OnInit {
         this.vehicleUsageList = data
 
       },
-      ((err) => console.log(err)));
+        ((err) => console.log(err)));
   }
 
   getVehicleUsageByRiskTypeIDAndVehicleType(riskType, vehicleType) {
@@ -391,10 +391,10 @@ export class QuotationViewComponent implements OnInit {
         this.VehicleUsageId = "0";
 
       },
-      (err) => {
-        console.log(err);
+        (err) => {
+          console.log(err);
 
-      });
+        });
   }
 
   getAllowedProducts(vehicleTypeId, usageId) {
@@ -408,11 +408,11 @@ export class QuotationViewComponent implements OnInit {
 
         this.isLoading = false;
       },
-      (err) => {
-        console.log(err);
+        (err) => {
+          console.log(err);
 
-        this.isLoading = false;
-      });
+          this.isLoading = false;
+        });
   }
 
   getFuelTypes() {
@@ -421,7 +421,7 @@ export class QuotationViewComponent implements OnInit {
         this.fuelTypeList = data
         this.FuelTypeCode = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
 
@@ -433,7 +433,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.LeasingType = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getAgentTypes() {
@@ -443,7 +443,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.AgentBroker = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getProducts() {
@@ -453,7 +453,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.ProductCode = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getPeriodTypes() {
@@ -471,7 +471,7 @@ export class QuotationViewComponent implements OnInit {
 
 
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
 
@@ -483,7 +483,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.TppdId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getWCI() {
@@ -493,7 +493,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.WciId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getLeagalLiabilityCounts() {
@@ -503,7 +503,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.legalLiabilityCountId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getLeagalLiabilityValues() {
@@ -513,7 +513,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.legalLiabilityValueId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getGoodsInTransitList() {
@@ -523,7 +523,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.goodsInTransitId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getPABToDriverList() {
@@ -533,7 +533,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.PABToDriverId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getPABToPassengerList() {
@@ -543,7 +543,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.PABToPassengerId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getMakeModelList() {
@@ -554,7 +554,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.makeModelId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getYearOfManufactureList() {
@@ -564,7 +564,7 @@ export class QuotationViewComponent implements OnInit {
 
         this.yearOfManufactureId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
   getUpFrontNCBByRiskTypeId(riskType) {
@@ -576,10 +576,10 @@ export class QuotationViewComponent implements OnInit {
         console.log('point 11');
 
         this.selectedUpFrontNCBId = this.upFrontNCBId;
-        console.log('point 11 this.selectedUpFrontNCBId '+this.selectedUpFrontNCBId );
+        console.log('point 11 this.selectedUpFrontNCBId ' + this.selectedUpFrontNCBId);
 
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
 
   }
 
@@ -597,19 +597,19 @@ export class QuotationViewComponent implements OnInit {
 
         console.log('point 12  this.selectedEarnedNCBId' + this.selectedEarnedNCBId);
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
 
 
-  getMakeModelListByRiskTypeId(riskType){
+  getMakeModelListByRiskTypeId(riskType) {
     this.quotationService.getMakeModelListByRiskTypeId(riskType)
-    .subscribe((data) => {
-      this.makeModelList = data;
+      .subscribe((data) => {
+        this.makeModelList = data;
 
-      // this.makeModelId = "0";
-    },
-    (err) => console.log(err));
+        // this.makeModelId = "0";
+      },
+        (err) => console.log(err));
   }
 
   onSelectOfEarnedNCB(earnedNCBValue) {
@@ -633,7 +633,7 @@ export class QuotationViewComponent implements OnInit {
   onSelectOfPeriodTypeCode(periodType) {
     this.quotationService.getPeriodsByPeriodType(periodType)
       .subscribe((data) => { this.periodList = data },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
 
@@ -652,7 +652,7 @@ export class QuotationViewComponent implements OnInit {
 
         //    this.VoluntaryId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
 
     this.quotationService.getEarnedNCBsByRiskTypeId(riskType)
       .subscribe((data) => {
@@ -660,7 +660,7 @@ export class QuotationViewComponent implements OnInit {
 
         //  this.EarnedNCBId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
 
     this.quotationService.getUpFrontNCBByRiskTypeId(riskType)
       .subscribe((data) => {
@@ -668,7 +668,7 @@ export class QuotationViewComponent implements OnInit {
 
         // this.upFrontNCBId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
 
 
     this.quotationService.getMakeModelListByRiskTypeId(riskType)
@@ -677,7 +677,7 @@ export class QuotationViewComponent implements OnInit {
 
         // this.makeModelId = "0";
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
 
 
     if (this.selectedVehicleType != '') {
@@ -927,12 +927,12 @@ export class QuotationViewComponent implements OnInit {
 
         this.mode = "MODIFY";
       },
-      (err) => {
-        console.log(err);
+        (err) => {
+          console.log(err);
 
 
-        this.isLoading = false;
-      });
+          this.isLoading = false;
+        });
   }
 
 
@@ -959,7 +959,7 @@ export class QuotationViewComponent implements OnInit {
         this.Premium = data;
 
       },
-      (err) => console.log(err));
+        (err) => console.log(err));
   }
 
 
@@ -1001,10 +1001,10 @@ export class QuotationViewComponent implements OnInit {
 
         this.isLoading = false;
       },
-      (err) => {
-        console.log(err);
-        this.isLoading = false;
-      });
+        (err) => {
+          console.log(err);
+          this.isLoading = false;
+        });
   }
 
 
@@ -1076,7 +1076,7 @@ export class QuotationViewComponent implements OnInit {
         console.log('ear val ' + coverType);
 
         this.selectedEarnedNCBId = coverAmount;
-console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
+        console.log('point 13 this.selectedEarnedNCBId ' + this.selectedEarnedNCBId);
 
         this.EarnedNCBId = coverType;
         this.EarnedNCBValue = coverAmount;
@@ -1089,7 +1089,7 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
 
         this.selectedUpFrontNCBId = coverAmount;
 
-        console.log('point 14 this.selectedUpFrontNCBId '+this.selectedUpFrontNCBId);
+        console.log('point 14 this.selectedUpFrontNCBId ' + this.selectedUpFrontNCBId);
         this.upFrontNCBId = coverType;
         this.upFrontNCBName = coverAmount;
 
@@ -1573,13 +1573,14 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
 
 
     this.isQuotationDetailsValid = true;
-    if (this.SumInsured == null) {
-      this.SumInsuredClass = "has-error";
-      this.isQuotationDetailsValid = false;
-    } else {
-      this.SumInsuredClass = "";
+    if (this.ProductCode != COMMON_VALUES.THIRD_PARTY_PRODUCT_CODE) {
+      if (this.SumInsured == null || this.SumInsured == "0") {
+        this.SumInsuredClass = "has-error";
+        this.isQuotationDetailsValid = false;
+      } else {
+        this.SumInsuredClass = "";
+      }
     }
-
 
     // if (this.ProductCode == COMMON_VALUES.MOTOR_GUARD_EXTRA_PRODUCT_CODE) {
     //   if (this.YearOfManu == null || this.YearOfManu == "") {
@@ -1695,220 +1696,220 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
 
     console.log('point1');
 
+    if (this.ProductCode != COMMON_VALUES.THIRD_PARTY_PRODUCT_CODE) {
+      for (var i = 1; i < 40; i++) {
 
-    for (var i = 1; i < 40; i++) {
+        var chkName: any;
+        chkName = "this.isChk" + i + "Checked";
 
-      var chkName: any;
-      chkName = "this.isChk" + i + "Checked";
+        if (eval(chkName)) {
 
-      if (eval(chkName)) {
+          var coverAmount = "";
+          var coverType = "";
 
-        var coverAmount = "";
-        var coverType = "";
+          var chkString = "chk" + i;
 
-        var chkString = "chk" + i;
+          if (chkString == "chk2" || chkString == "chk4" || chkString == "chk5" || chkString == "chk6" || chkString == "chk7" || chkString == "chk9" || chkString == "chk10" || chkString == "chk12" || chkString == "chk13") {
+            if (chkString == "chk2") {
+              if (this.VoluntaryId == "0") {
+                this.VoluntaryClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.VoluntaryClass = "";
+              }
+            }
 
-        if (chkString == "chk2" || chkString == "chk4" || chkString == "chk5" || chkString == "chk6" || chkString == "chk7" || chkString == "chk9" || chkString == "chk10" || chkString == "chk12" || chkString == "chk13") {
-          if (chkString == "chk2") {
-            if (this.VoluntaryId == "0") {
-              this.VoluntaryClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.VoluntaryClass = "";
+            if (chkString == "chk4") {
+
+              if (this.PABToDriverId == "0") {
+                this.PABToDriverClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.PABToDriverClass = "";
+              }
+            }
+            if (chkString == "chk5") {
+
+              if (this.PABToPassengerId == "0") {
+                this.PABToPassengerClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.PABToPassengerClass = "";
+              }
+            }
+            if (chkString == "chk6") {
+
+              if (this.goodsInTransitId == "0") {
+                this.GoodsInTransitClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.GoodsInTransitClass = "";
+              }
+            }
+            if (chkString == "chk7") {
+              if (this.legalLiabilityCountId == "0") {
+                this.LegalLiabilityClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.LegalLiabilityClass = "";
+              }
+            }
+            if (chkString == "chk9") {
+              if (this.EarnedNCBId == "0") {
+                this.EarnedNCBClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.EarnedNCBClass = "";
+              }
+            }
+            if (chkString == "chk10") {
+              if (this.upFrontNCBId == "0") {
+                this.UpFrontNCBClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.UpFrontNCBClass = "";
+              }
+            }
+            if (chkString == "chk12") {
+              if (this.TppdId == "0") {
+                this.TPPDClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.TPPDClass = "";
+              }
+            }
+            if (chkString == "chk13") {
+              if (this.WciId == "0") {
+                this.WCIClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.WCIClass = "";
+              }
             }
           }
 
-          if (chkString == "chk4") {
 
-            if (this.PABToDriverId == "0") {
-              this.PABToDriverClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.PABToDriverClass = "";
-            }
-          }
-          if (chkString == "chk5") {
+          if (chkString == "chk1" || chkString == "chk3" || chkString == "chk4" || chkString == "chk5" || chkString == "chk6" || chkString == "chk7" || chkString == "chk8" || chkString == "chk9" || chkString == "chk10" || chkString == "chk11" || chkString == "chk21" || chkString == "chk28" || chkString == "chk29" || chkString == "chk30" || chkString == "chk31" || chkString == "chk32" || chkString == "chk35") {
+            // if (chkString == "chk1") {
+            //   if (this.HirePurchaseAmount == null) {
+            //     this.HirePurchaseClass = "has-error";
+            //     this.isQuotationDetailsValid = false;
+            //   } else {
+            //     this.HirePurchaseClass = "";
+            //   }
+            // }
 
-            if (this.PABToPassengerId == "0") {
-              this.PABToPassengerClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.PABToPassengerClass = "";
+            if (chkString == "chk3") {
+              if (this.AACMembershipAmount == null) {
+                this.AACMembershipClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.AACMembershipClass = "";
+              }
             }
-          }
-          if (chkString == "chk6") {
+            if (chkString == "chk4") {
+              if (this.PABToDriverAmount == null || Number(this.PABToDriverAmount) < Number(COMMON_VALUES.MINIMUM_PAB_CHARGE)) {
+                this.PABToDriverClass = "has-error";
+                this.isQuotationDetailsValid = false;
 
-            if (this.goodsInTransitId == "0") {
-              this.GoodsInTransitClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.GoodsInTransitClass = "";
+                this.showError('PAB to Driver amount is below the minimum amount');
+              } else {
+                this.PABToDriverClass = "";
+              }
+
+              if (this.PABToDriverAmount == null || Number(this.PABToDriverAmount) > Number(COMMON_VALUES.MAXIMUM_PAB_CHARGE)) {
+                this.PABToDriverClass = "has-error";
+                this.isQuotationDetailsValid = false;
+
+                this.showError('PAB to Driver amount is exceded the maximum amount');
+              } else {
+                this.PABToDriverClass = "";
+              }
+
             }
-          }
-          if (chkString == "chk7") {
-            if (this.legalLiabilityCountId == "0") {
-              this.LegalLiabilityClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.LegalLiabilityClass = "";
+            if (chkString == "chk5") {
+              if (this.PABToPassengerAmount == null || Number(this.PABToPassengerAmount) < Number(COMMON_VALUES.MINIMUM_PAB_CHARGE)) {
+                this.PABToPassengerClass = "has-error";
+                this.isQuotationDetailsValid = false;
+
+                this.showError('PAB to Passenger amount is below the minimum amount');
+              } else {
+                this.PABToPassengerClass = "";
+              }
+
+              if (this.PABToPassengerAmount == null || Number(this.PABToPassengerAmount) > Number(COMMON_VALUES.MAXIMUM_PAB_CHARGE)) {
+                this.PABToPassengerClass = "has-error";
+                this.isQuotationDetailsValid = false;
+                this.showError('PAB to Passenger amount is exceded the maximum amount');
+              } else {
+                this.PABToPassengerClass = "";
+              }
+
             }
-          }
-          if (chkString == "chk9") {
-            if (this.EarnedNCBId == "0") {
-              this.EarnedNCBClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.EarnedNCBClass = "";
+            if (chkString == "chk6") {
+              //  coverAmount = this.GoodsInTransitAmount;
             }
-          }
-          if (chkString == "chk10") {
-            if (this.upFrontNCBId == "0") {
-              this.UpFrontNCBClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.UpFrontNCBClass = "";
+            if (chkString == "chk7") {
+              if (this.legalLiabilityValueId == "0") {
+                this.LegalLiabilityClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.LegalLiabilityClass = "";
+              }
             }
-          }
-          if (chkString == "chk12") {
-            if (this.TppdId == "0") {
-              this.TPPDClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.TPPDClass = "";
+            if (chkString == "chk8") {
+              if (Number(this.TowingChargeAmount) < Number(COMMON_VALUES.MINIMUM_TOWING_CHARGE)) {
+                this.TowingChargesClass = "has-error";
+                this.isQuotationDetailsValid = false;
+                this.showError('Towing charge amount is below the minimum amount');
+              } else {
+                this.TowingChargesClass = "";
+              }
             }
-          }
-          if (chkString == "chk13") {
-            if (this.WciId == "0") {
-              this.WCIClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.WCIClass = "";
+            if (chkString == "chk9") {
+              // coverAmount = this.EarnedNCBValue;
             }
+            if (chkString == "chk10") {
+              // coverAmount = this.upFrontNCBId;
+            }
+            if (chkString == "chk11") {
+              if (this.WindscreenAmount == null) {
+                this.WindscreenClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.WindscreenClass = "";
+              }
+            }
+            if (chkString == "chk21") {
+              //coverAmount = this.PointsEarnedAmount;
+            }
+
+            if (chkString == "chk32") {
+              if (this.CompulsaryExcess == null) {
+                this.CompulsaryExcessClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.CompulsaryExcessClass = "";
+              }
+            }
+            if (chkString == "chk35") {
+              if (this.AirBAgReplacementAmount == null) {
+                this.AirBagReplacementClass = "has-error";
+                this.isQuotationDetailsValid = false;
+              } else {
+                this.AirBagReplacementClass = "";
+              }
+            }
+
           }
+          console.log('point2');
+
         }
-
-
-        if (chkString == "chk1" || chkString == "chk3" || chkString == "chk4" || chkString == "chk5" || chkString == "chk6" || chkString == "chk7" || chkString == "chk8" || chkString == "chk9" || chkString == "chk10" || chkString == "chk11" || chkString == "chk21" || chkString == "chk28" || chkString == "chk29" || chkString == "chk30" || chkString == "chk31" || chkString == "chk32" || chkString == "chk35") {
-          // if (chkString == "chk1") {
-          //   if (this.HirePurchaseAmount == null) {
-          //     this.HirePurchaseClass = "has-error";
-          //     this.isQuotationDetailsValid = false;
-          //   } else {
-          //     this.HirePurchaseClass = "";
-          //   }
-          // }
-
-          if (chkString == "chk3") {
-            if (this.AACMembershipAmount == null) {
-              this.AACMembershipClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.AACMembershipClass = "";
-            }
-          }
-          if (chkString == "chk4") {
-            if (this.PABToDriverAmount == null || Number(this.PABToDriverAmount) < Number(COMMON_VALUES.MINIMUM_PAB_CHARGE)) {
-              this.PABToDriverClass = "has-error";
-              this.isQuotationDetailsValid = false;
-
-              this.showError('PAB to Driver amount is below the minimum amount');
-            } else {
-              this.PABToDriverClass = "";
-            }
-
-            if (this.PABToDriverAmount == null || Number(this.PABToDriverAmount) > Number(COMMON_VALUES.MAXIMUM_PAB_CHARGE)) {
-              this.PABToDriverClass = "has-error";
-              this.isQuotationDetailsValid = false;
-
-              this.showError('PAB to Driver amount is exceded the maximum amount');
-            } else {
-              this.PABToDriverClass = "";
-            }
-
-          }
-          if (chkString == "chk5") {
-            if (this.PABToPassengerAmount == null || Number(this.PABToPassengerAmount) < Number(COMMON_VALUES.MINIMUM_PAB_CHARGE)) {
-              this.PABToPassengerClass = "has-error";
-              this.isQuotationDetailsValid = false;
-
-              this.showError('PAB to Passenger amount is below the minimum amount');
-            } else {
-              this.PABToPassengerClass = "";
-            }
-
-            if (this.PABToPassengerAmount == null || Number(this.PABToPassengerAmount) > Number(COMMON_VALUES.MAXIMUM_PAB_CHARGE)) {
-              this.PABToPassengerClass = "has-error";
-              this.isQuotationDetailsValid = false;
-              this.showError('PAB to Passenger amount is exceded the maximum amount');
-            } else {
-              this.PABToPassengerClass = "";
-            }
-
-          }
-          if (chkString == "chk6") {
-            //  coverAmount = this.GoodsInTransitAmount;
-          }
-          if (chkString == "chk7") {
-            if (this.legalLiabilityValueId == "0") {
-              this.LegalLiabilityClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.LegalLiabilityClass = "";
-            }
-          }
-          if (chkString == "chk8") {
-            if (Number(this.TowingChargeAmount) < Number(COMMON_VALUES.MINIMUM_TOWING_CHARGE)) {
-              this.TowingChargesClass = "has-error";
-              this.isQuotationDetailsValid = false;
-              this.showError('Towing charge amount is below the minimum amount');
-            } else {
-              this.TowingChargesClass = "";
-            }
-          }
-          if (chkString == "chk9") {
-            // coverAmount = this.EarnedNCBValue;
-          }
-          if (chkString == "chk10") {
-            // coverAmount = this.upFrontNCBId;
-          }
-          if (chkString == "chk11") {
-            if (this.WindscreenAmount == null) {
-              this.WindscreenClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.WindscreenClass = "";
-            }
-          }
-          if (chkString == "chk21") {
-            //coverAmount = this.PointsEarnedAmount;
-          }
-
-          if (chkString == "chk32") {
-            if (this.CompulsaryExcess == null) {
-              this.CompulsaryExcessClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.CompulsaryExcessClass = "";
-            }
-          }
-          if (chkString == "chk35") {
-            if (this.AirBAgReplacementAmount == null) {
-              this.AirBagReplacementClass = "has-error";
-              this.isQuotationDetailsValid = false;
-            } else {
-              this.AirBagReplacementClass = "";
-            }
-          }
-
-        }
-        console.log('point2');
+        console.log('point3');
+        console.log('this.isQuotationDetailsValid ' + this.isQuotationDetailsValid);
 
       }
-      console.log('point3');
-      console.log('this.isQuotationDetailsValid '+this.isQuotationDetailsValid);
-      
     }
-
 
 
 
@@ -2019,6 +2020,41 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
     document.getElementById("openQuotationModalButton").click();
   }
 
+  public calculateAndGetPremium() {
+    let objForCalculate: IQuotationCalculate = {
+      JobId: this.JobId,
+      RevisionNo: '0',
+      RiskTypeId: this.RiskTypeId,
+      ProductCode: this.ProductCode
+
+    }
+    this.quotationService.calculateAndGetPremium(objForCalculate).subscribe((data: any) => {
+      console.log(data);
+
+      this.Premium = data.toString().replace(/"/g, '');
+
+      let obj: IQuotationView = {
+        JobId: this.JobId,
+        RevisionNo: '0',
+        ProductCode: this.ProductCode
+      };
+
+
+
+
+      this.CalculationURL = URL_CONST.URL_PREFIX + "/api/QuotationMain/GetCalculation?quotationViewRequest=" + obj;
+
+      this.QuotationURL = URL_CONST.URL_PREFIX + "/api/QuotationMain/GetQuotation?quotationViewRequest=" + obj;
+
+      this.isLoading = false;
+
+    },
+      (err) => {
+        console.log(err);
+
+        this.isLoading = false;
+      });
+  }
 
   public calculate() {
 
@@ -2141,9 +2177,9 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
     let obj: IQuotationMain = {
       QuotationNo: this.QuotationNo,
       JobId: this.JobId,
-      RequestBy: this.RequestBy,
-      ClientName: this.ClientName,
-      VehicleChasisNo: this.VehicleChasisNo,
+      RequestBy: this.RequestBy.toUpperCase(),
+      ClientName: this.ClientName.toUpperCase(),
+      VehicleChasisNo: this.VehicleChasisNo.toUpperCase(),
       RiskTypeId: this.RiskTypeId,
       VehicleTypeId: this.VehicleTypeId,
       VehicleUsageId: this.VehicleUsageId,
@@ -2172,21 +2208,25 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
 
     this.newQuotation = null;
     this.quotationService.saveQuotationMainDetails(obj).subscribe((data: any) => {
+      if (data != "error") {
 
-      let returnText = data.text();
-      this.JobId = returnText.toString().replace(/"/g, '');
+        this.JobId = data.toString().replace(/"/g, '');
 
-      console.log(this.JobId);
-
+        console.log(this.JobId);
 
 
-      this.RevisionNo = "0";
 
-      if (this.ProductCode != COMMON_VALUES.THIRD_PARTY_PRODUCT_CODE) {
-        this.saveQuotationCovers();
+        this.RevisionNo = "0";
+
+        if (this.ProductCode != COMMON_VALUES.THIRD_PARTY_PRODUCT_CODE) {
+          this.saveQuotationCovers();
+        } else {
+
+          this.calculateAndGetPremium();
+          //this.isLoading = false;
+        }
+
       }
-
-
 
     },
       (err) => {
@@ -2244,14 +2284,24 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
     this.quotationService.updateQuotationMainDetails(obj).subscribe((data: any) => {
 
 
-      if (this.ProductCode != "3") {
-        console.log('point7');
+      console.log("updateQuotationMainDetails = " + data);
 
-        this.saveQuotationCovers();
 
-        console.log('point7.1');
+      if (data != "error") {
+
+        if (this.ProductCode != COMMON_VALUES.THIRD_PARTY_PRODUCT_CODE) {
+          this.saveQuotationCovers();
+        } else {
+
+          this.calculateAndGetPremium();
+
+        }
+
+      } else {
+
+        console.log("error");
+        this.isLoading = false;
       }
-
 
 
 
@@ -2327,7 +2377,7 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
             if (this.selectedEarnedNCBId != "0") {
               this.EarnedNCBId = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBName'];
               this.EarnedNCBValue = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBValue'];
-             }
+            }
 
             coverType = this.EarnedNCBId;
           }
@@ -2379,7 +2429,7 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
             if (this.selectedEarnedNCBId != "0") {
               this.EarnedNCBId = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBName'];
               this.EarnedNCBValue = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBValue'];
-             }
+            }
 
             coverAmount = this.EarnedNCBValue;
           }
@@ -2442,43 +2492,15 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
     this.quotationService.saveQuotationCoversDetails(this.JobId, this.RevisionNo, this.quotationCovers).subscribe((data: any) => {
 
 
-      let objForCalculate: IQuotationCalculate = {
-        JobId: this.JobId,
-        RevisionNo: '0',
-        RiskTypeId: this.RiskTypeId,
-        ProductCode: this.ProductCode
+      if (data != "error") {
+        console.log('aaasas');
 
-      }
+        this.calculateAndGetPremium();
+      } else {
 
-
-      this.quotationService.calculateAndGetPremium(objForCalculate).subscribe((data: any) => {
-        console.log(data);
-
-        let returnText = data.text();
-        this.Premium = returnText.toString().replace(/"/g, '');
-
-        let obj: IQuotationView = {
-          JobId: this.JobId,
-          RevisionNo: '0',
-          ProductCode: this.ProductCode
-        };
-
-
-
-
-        this.CalculationURL = URL_CONST.URL_PREFIX + "/api/QuotationMain/GetCalculation?quotationViewRequest=" + obj;
-
-        this.QuotationURL = URL_CONST.URL_PREFIX + "/api/QuotationMain/GetQuotation?quotationViewRequest=" + obj;
-
+        console.log("error");
         this.isLoading = false;
-
-      },
-        (err) => {
-          console.log(err);
-
-          this.isLoading = false;
-        });
-
+      }
 
     },
       (err) => {
@@ -2492,19 +2514,36 @@ console.log('point 13 this.selectedEarnedNCBId '+this.selectedEarnedNCBId);
 
   test() {
     console.log('selectedEarnedNCBId ' + this.selectedEarnedNCBId);
-console.log(this.earnedNCBList);
+    console.log(this.earnedNCBList);
 
 
     if (this.selectedEarnedNCBId != "0") {
       this.EarnedNCBId = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBName'];
       this.EarnedNCBValue = this.earnedNCBList.filter(item => item.EarnedNCBValue == this.selectedEarnedNCBId)[0]['EarnedNCBValue'];
-     }
+    }
 
 
     console.log('this.EarnedNCBId ' + this.EarnedNCBId);
     console.log(' this.EarnedNCBValue  ' + this.EarnedNCBValue);
 
 
+
+  }
+
+
+
+
+
+  public CheckYOM() {
+    if (this.YearOfManu != "") {
+      let selectedYearOfManu = Number(this.YearOfManu);
+
+      if (selectedYearOfManu < 2013) {
+        this.yearOfManufactureId = 'Below 2013';
+      } else {
+        this.yearOfManufactureId = 'Above 2013';
+      }
+    }
 
   }
 }
